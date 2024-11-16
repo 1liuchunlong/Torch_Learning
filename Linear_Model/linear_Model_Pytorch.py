@@ -7,9 +7,11 @@ import matplotlib.pyplot as plt
 
 
 # 注意 mini_batch 输入
+### 1. prepare datasets
 x_data = torch.Tensor([[1.0], [2.0], [3.0]])
 y_data = torch.Tensor([[2.0], [4.0], [6.0]])
 
+### 2. Design model using class(nn.Module)
 class LinearModel(torch.nn.Module):
     def __init__(self):
         # 调佣父类的__init__
@@ -23,11 +25,14 @@ class LinearModel(torch.nn.Module):
         return y_pred
 
 model = LinearModel()
+
+### 3. construct criterion and optimizer
 criterion = torch.nn.MSELoss(size_average=False)
 # 需要对linear的 w和 b 的参数的优化(linear.parameters())
 # 申明 需要对那些参数优化 以及学习率设置
 optimizer = torch.optim.SGD(model.parameters(), lr = 0.01)
 
+### 4. train circle
 for epoch in range(100):
     #  都是callable的对象
     y_pred = model(x_data) # forward : predict
