@@ -116,7 +116,7 @@ if __name__ == '__main__':
         epoch_list.append(epoch + 1)
         acc_list.append(acc)
 
-    plt.figure(figsize==(10,8))
+    plt.figure(figsize=(10,8))
     plt.plot(epoch_list, acc_list)
     plt.xlabel('Epoch')
     plt.ylabel('Acc')
